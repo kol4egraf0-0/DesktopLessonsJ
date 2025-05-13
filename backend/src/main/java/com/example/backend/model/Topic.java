@@ -14,6 +14,6 @@ public class Topic {
     private String difficulty;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 }
