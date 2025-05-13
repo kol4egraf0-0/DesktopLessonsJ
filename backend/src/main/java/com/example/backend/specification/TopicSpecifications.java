@@ -13,8 +13,8 @@ public class TopicSpecifications { //util
             String likePattern = "%" + text.toLowerCase() + "%";
 
             return cb.or(
-                    cb.equal(cb.lower(root.get("title")), likePattern), //
-                    cb.equal(cb.lower(root.get("description")), likePattern)
+                    cb.like(cb.lower(root.get("title")), likePattern), //
+                    cb.like(cb.lower(root.get("description")), likePattern)
             );
         };
     }
