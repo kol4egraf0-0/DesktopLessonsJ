@@ -23,7 +23,7 @@ public class TopicService {
     }
 
     public List<TopicDTO> getTopicByCategory(Long categoryId) {
-        return topicRepository.findByCategory(categoryId)
+        return topicRepository.findByCategoryId(categoryId)
                 .stream()
                 .map(TopicDTO::new)
                 .toList();
