@@ -1,7 +1,10 @@
 package com.example.backend.service;
 
+import com.example.backend.dto.TopicDTO;
 import com.example.backend.repository.TopicRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class TopicService {
@@ -12,5 +15,17 @@ public class TopicService {
         this.topicRepository = topicRepository;
     }
 
+    public List<TopicDTO> getAllTopics() {
+        return topicRepository.findAll()
+                .stream()
+                .map(TopicDTO::new)
+                .toList();
+    }
 
+    public List<TopicDTO> getTopicByCategory(Long categoryId) {
+        return topicRepository.findByCategory(categoryId)
+                .stream()
+                .map(TopicDTO::new)
+                .toList();
+    }
 }
